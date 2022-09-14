@@ -1,0 +1,19 @@
+{
+  "name": "buy-dero",
+  "version": "1.0.0",
+  "description": "No KYC portal to buy DERO",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build frontend/buy-dero-ui backend/buy-dero",
+    "start": "wp-scripts start frontend/buy-dero-ui backend/buy-dero",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Captain Unknown | Web3naut",
+  "license": "MIT",
+  "dependencies": {
+    "@paypal/react-paypal-js": "^7.8.1",
+    "@wordpress/scripts": "^24.0.0",
+    "react-tooltip": "^4.2.21",
+    "sass": "^1.54.9"
+  }
+}
