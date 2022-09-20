@@ -1,6 +1,6 @@
 ![Powered by DERO](https://i.imgur.com/ulni3VS.jpg)
 
-# Buy-DERO | WordPress 🔌 (https://img.shields.io/badge/1.0.0-brightgreen)
+# Buy-DERO | WordPress 🔌 ![Buy DERO](https://img.shields.io/badge/0.1.8-brightgreen)
  This plugin provides a safe place to reliably exchange fiat for DERO, directly into their personal wallet. 
  
  The plugin uses `@paypal/react-paypal-js` (Paypal SDK for React) to create an Order ID with the requested amount of DERO. The price of the order is determined by the [NodeJS Server](https://github.com/CaptainUnknown/Buy-DERO-Server) that fetches the current exchange rate for DERO. Upon approval of the order, the server captures the transaction & releases the requested amount of DERO to the user's wallet.
