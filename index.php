@@ -2,8 +2,8 @@
 
 /*
   Plugin Name: Buy DERO
-  Description: No KYC Portal to buy DERO
-  Version: 0.1.0
+  Description: Buy DERO with no KYC
+  Version: 1.0.0
   Author: CaptainUnknown
   Author URI: https://web3naut.com
   License: MIT

@@ -1,8 +1,6 @@
 import "./buy-dero.scss"
 import ReactTooltip from 'react-tooltip'
 import { registerBlockType } from "@wordpress/blocks"
-import { InspectorControls } from "@wordpress/block-editor"
-import { PanelBody, PanelRow, ColorPicker } from "@wordpress/components"
 
 const EditComponent = (props) => {
     const updateClientID = (event) => {
@@ -10,13 +8,6 @@ const EditComponent = (props) => {
     }
     const updateServerURI = (event) => {
         props.setAttributes({serverURI: event.target.value});
-    }
-    
-    function updateBgColor(colorCode) {
-        props.setAttributes({bgColor: colorCode.hex})
-    }
-    function updatePrimaryColor(colorCode) {
-        props.setAttributes({primaryColor: colorCode.hex})
     }
 
     return (<>
@@ -32,22 +23,6 @@ const EditComponent = (props) => {
                 <ReactTooltip/>
             </p>
         </div>
-
-        <InspectorControls>
-            <PanelBody>
-            <h2> Background Color: </h2><br/>
-                <PanelRow>
-                    <ColorPicker color={props.attributes.color} defaultValue="#000000" disableAlpha onChangeComplete={updateBgColor} />
-                </PanelRow>
-            </PanelBody>
-            <PanelBody>
-            <h2> Primary Color: </h2><br/>
-                <PanelRow>
-                    <ColorPicker color={props.attributes.color} defaultValue="#000000" disableAlpha onChangeComplete={updatePrimaryColor} />
-                </PanelRow>
-            </PanelBody>
-        </InspectorControls>
-
     </>)
 }
 
@@ -58,9 +33,6 @@ registerBlockType("deropay/buy-dero", {
     attributes: {
         clientID: {type: 'string'},
         serverURI: {type: 'string'},
-
-        bgColor: { type: "string", default: "#000000" },
-        primaryColor: { type: "string", default: "#000000" }
     },
     edit: EditComponent,
     save: function() {
