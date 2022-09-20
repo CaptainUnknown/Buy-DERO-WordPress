@@ -28,6 +28,12 @@ const BuyDERO = (props) => {
   const [errorVisibility, setErrorVisibility] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  if (attributes.clientID == undefined) {
+    return <div className="payBlock"> <p> ❌  Missing Paypal ClientID, ClientID can be found in developers dashboard. </p> </div>
+  }
+  if (attributes.serverURI == undefined) {
+    return <div className="payBlock"> <p> ❌  Missing Server URI, Deploy <a href="https://github.com/CaptainUnknown/Buy-DERO-Server"> this </a> NodeJS Server & add its URI. </p> </div>
+  }
 
   return (<>
     <div className="payBlock">
@@ -41,7 +47,7 @@ const BuyDERO = (props) => {
 
             setDEROAmount(event.target.value);
             quantity = event.target.value;
-          }} /><br /><br />
+          }}/><br /><br />
 
       </p>
       <p> Wallet Address:
@@ -68,7 +74,7 @@ const BuyDERO = (props) => {
             createOrder={async (data, actions) => {
               console.log('Wallet: ' + wallet);
               console.log('Quantity: ' + parseInt(Math.round(quantity)));
-              return await fetch("http://localhost:8000/create-order", {
+              return await fetch(`${props.serverURI}/create-order`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -95,7 +101,7 @@ const BuyDERO = (props) => {
             }}
 
             onApprove={async (data, actions) => {
-              return await fetch("http://localhost:8000/capture-order", {
+              return await fetch(`${props.serverURI}/capture-order`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
